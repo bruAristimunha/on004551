@@ -2,7 +2,7 @@
   "version": "2.0",
   "pipeline_stage": "validated",
   "title": "iEEG on children during slow wave sleep\n",
-  "description": "This dataset contains intracranial EEG (iEEG) recordings acquired from 114 children during slow wave sleep, curated for use in a forthcoming manuscript by Sakakura et al. Electrode coordinates are provided in the MNI305 coordinate system, facilitating cross-subject spatial analyses. The dataset supports investigations into neural dynamics during sleep in pediatric populations undergoing intracranial monitoring.",
+  "description": "This dataset contains intracranial EEG (iEEG) recordings from 114 children obtained during slow wave sleep. It was curated to accompany a manuscript by Sakakura et al. (in preparation), and electrode coordinates are provided in MNI305 space. Analysis code in Matlab is available from the authors' GitHub repository.",
   "license": "CC0",
   "dataset_type": "raw",
   "authors": {
@@ -18,9 +18,7 @@
   },
   "keywords": [
     {
-      "term": "Electroencephalography",
-      "subject_scheme": "MeSH",
-      "value_uri": "http://id.nlm.nih.gov/mesh/D004569"
+      "term": "iEEG"
     },
     {
       "term": "intracranial EEG"
@@ -32,7 +30,12 @@
       "term": "pediatric epilepsy"
     },
     {
-      "term": "MNI305 coordinate system"
+      "term": "high-frequency oscillations"
+    },
+    {
+      "term": "Electroencephalography",
+      "subject_scheme": "MeSH",
+      "value_uri": "http://id.nlm.nih.gov/mesh/D004569"
     }
   ],
   "related_identifiers": [
@@ -68,7 +71,7 @@
     "ieeg"
   ],
   "sizes": [
-    "74.0 GB (126 files)"
+    "68.93 GB (126 files)"
   ],
   "formats": [
     ".edf",
