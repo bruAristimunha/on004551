@@ -1,3 +1,7 @@
+Unreleased 2026-10-18
+  - channels.tsv of 125 recordings = the data-file header channel list (name, order, count; matched by name): 14476 rows renamed to the header name, 2043 rows added, 1203 rows removed (kept in sourcedata/channels-removed-2026-10-18/), 125 files reordered. Before, mne_bids could not apply channels.tsv to these files (count or name mismatch).
+  - README: section 'Channel names follow the data headers'.
+
 1.0.6 2023-05-30
   - Change README
 1.0.5 2023-04-18
