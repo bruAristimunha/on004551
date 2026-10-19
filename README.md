@@ -20,3 +20,9 @@ Rows were matched to header channels BY NAME, never by position (exact; then cas
 Applied by position, the former rows would have given wrong labels to 13719 channels in 125 files (rows missing, extra or out of order before that position).
 
 electrodes.tsv is unchanged: it names the contacts (e.g. `A1`), while channel names follow the recorder (e.g. `A1-AV`); to attach positions in MNE, map channel names to contact names first, e.g. `raw.rename_channels(lambda n: re.sub(r'-[A-Za-z0-9]+$', '', n))`.
+
+## Electrode locations (19 Oct 2026)
+
+Add coordsystem.json MNI305/mm next to 124 electrodes.tsv (proposal A1, Lane G round 4). Evidence: Wayne State (Asano/Kanno/Kochi) deposits use FreeSurfer-standard (MNI305/fsaverage) electrode coordinates; MNI305 is a millimetre space by definition. No OpenNeuro S3 version of this dataset ever held a coordsystem.json (all versions listed 2026-10-19). README: "The iEEG coordinate system employed in this dataset is MNI305." Paper PMC10575956 (Methods, MRI): "normalize the electrode locations to the standardized FSaverage brain surface".
+
+Full evidence per dataset: REPORT-ieeg-locations.md and ieeg_locations.json (Lane G, 19 Oct 2026). This dataset mirrors OpenNeuro; the same change belongs upstream. Local branch only.
