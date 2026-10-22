@@ -21,8 +21,12 @@ Applied by position, the former rows would have given wrong labels to 13719 chan
 
 electrodes.tsv is unchanged: it names the contacts (e.g. `A1`), while channel names follow the recorder (e.g. `A1-AV`); to attach positions in MNE, map channel names to contact names first, e.g. `raw.rename_channels(lambda n: re.sub(r'-[A-Za-z0-9]+$', '', n))`.
 
-## Electrode locations (19 Oct 2026)
+## Electrode locations (19 Oct 2026; revised 22 Oct 2026)
 
-Add coordsystem.json MNI305/mm next to 124 electrodes.tsv (proposal A1, Lane G round 4). Evidence: Wayne State (Asano/Kanno/Kochi) deposits use FreeSurfer-standard (MNI305/fsaverage) electrode coordinates; MNI305 is a millimetre space by definition. No OpenNeuro S3 version of this dataset ever held a coordsystem.json (all versions listed 2026-10-19). README: "The iEEG coordinate system employed in this dataset is MNI305." Paper PMC10575956 (Methods, MRI): "normalize the electrode locations to the standardized FSaverage brain surface".
+Add coordsystem.json MNI305/mm next to 124 electrodes.tsv. Evidence: Wayne State (Asano/Kanno/Kochi) deposits use FreeSurfer-standard (MNI305/fsaverage) electrode coordinates; MNI305 is a millimetre space by definition. No OpenNeuro S3 version of this dataset ever held a coordsystem.json (all versions listed 2026-10-19). README: "The iEEG coordinate system employed in this dataset is MNI305." Paper PMC10575956 (Methods, MRI): "normalize the electrode locations to the standardized FSaverage brain surface".
 
-Full evidence per dataset: REPORT-ieeg-locations.md and ieeg_locations.json (Lane G, 19 Oct 2026). This dataset mirrors OpenNeuro; the same change belongs upstream. Local branch only.
+Primary source: this dataset's own README (line 6 of README.md on main, nemarDatasets/on004551@c4c035f6), quoted above.
+
+Reproducible check (22 Oct 2026): for each of the 124 electrodes.tsv, every contact's x/y/z was compared (to 0.001 mm) with every electrodes.tsv of other deposits from the same group at pinned nemarDatasets commits (on004859@db21ebb2, on005007@b59363aa, on005545@948f2825, on005931@cbd529e5, on006107@b37dcbfc, on006233@396692f0, on006910@9eb96ebd, on006914@1956b035, on007118@8f2c41fa, on007119@c099745b, on007120@66296ebd). 101 files have all contacts identical to one file of another deposit: 68 to a deposit whose coordsystem.json declares fsaverage/mm (on007118, on007119, on007120) and 66 to a deposit whose README states MNI305/MNI-305 (on005545, on006233, on006910, on006914); a file can match both. The other 23 match partly (11 with at least 89 % of contacts identical, 0 with 50-89 %, 12 below 50 %, 0 none).
+
+Limitation: these sidecars declare the frame and units only. electrodes.tsv is unchanged and no coordinate value changed. Positions do not attach to channels in mne_bids or EEGDash, because the channel names (data-header labels, e.g. prefixed labels or bipolar derivations) differ from the contact names in electrodes.tsv; a channel-to-contact mapping is not part of this change. This dataset mirrors OpenNeuro; the same change belongs upstream.
